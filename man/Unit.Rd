@@ -1,7 +1,7 @@
 \name{Unit}
 \alias{Unit}
 \title{
-Disply CDISC standard units and multiplied factor of NCA results  
+Display CDISC standard units and multiplied factor of NCA results  
 }
 \description{
 It displays CDISC PP output units and multiplication factor for them.
@@ -19,7 +19,7 @@ Unit(code = "", timeUnit = "h", concUnit = "ng/mL", doseUnit = "mg", MW = 0)
 \value{
   \item{row names}{PPTESTCD}
   \item{Unit}{unit}
-  \item{Factor}{internal mulitpilcation factor}
+  \item{Factor}{internal mulitplication factor}
 }
 \author{Kyun-Seop Bae <k@acr.kr>}
 \examples{

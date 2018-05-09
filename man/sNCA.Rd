@@ -4,7 +4,7 @@
 \description{This is the work-horse function for NCA.}
 \usage{
 sNCA(x, y, dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit = "h", 
-     concUnit = "ug/L", iAUC = "", down = "Linear", MW = 0, returnNA = FALSE)
+     concUnit = "ug/L", iAUC = "", down = "Linear", R2ADJ = 0.9, MW = 0, returnNA = FALSE)
 }
 \arguments{
   \item{x}{usually time}
@@ -17,6 +17,7 @@ sNCA(x, y, dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit =
   \item{concUnit}{unit of concentration}
   \item{iAUC}{interval AUCs to calculate}
   \item{down}{either of \code{"Linear"} or \code{"Log"} to indicate the way to calculate AUC and AUMC}
+  \item{R2ADJ}{Lowest threshold of adjusted R-square value to do manual slope determination}
   \item{MW}{molecular weight of the drug}
   \item{returnNA}{deprecated, just for backward compatibility}
 }
@@ -32,14 +33,14 @@ sNCA(x, y, dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit =
   \item{CLSTP}{last positive concentration predicted, Clast_pred}
   \item{TLST}{time of last positive concentration, Tlast}
   \item{LAMZHL}{half-life by lambda z, ln(2)/LAMZ}
-  \item{LAMZ}{lambda_z negative of best fit terminal slope}
+  \item{LAMZ}{lambda_z negative of the best-fit terminal slope}
   \item{LAMZLL}{earliest time for LAMZ}
   \item{LAMZUL}{last time for LAMZ}
   \item{LAMZNPT}{number of points for LAMZ}
   \item{CORRXY}{correlation of log(concentration) and time}
   \item{R2}{R-squared}
   \item{R2ADJ}{R-squared adjusted}
-  \item{C0}{back extrapolated concentration at time 0, for bolus intravascular administration only}
+  \item{C0}{back extrapolated concentration at time 0, for intravascular bolus administration only}
   \item{AUCLST}{AUC from 0 to TLST}
   \item{AUCALL}{AUC using all the given points, including trailing zero concentrations}
   \item{AUCIFO}{AUC infinity observed}

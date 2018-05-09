@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculate Area Under the Curve (AUC) and Area Under the first Moment Curve (AUMC) in a table format — AUC • NonCompart</title>
+<title>Determine slope for the log(y) and x regression manually — DetSlope • NonCompart</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -28,10 +28,9 @@
 
 
 
-<meta property="og:title" content="Calculate Area Under the Curve (AUC) and Area Under the first Moment Curve (AUMC) in a table format — AUC" />
+<meta property="og:title" content="Determine slope for the log(y) and x regression manually — DetSlope" />
 
-<meta property="og:description" content="Calculate Area Under the Curve(AUC) and the first Moment Curve(AUMC) in two ways; 'linear trapezoidal method' or 'linear-up and log-down' method.
-Return a table of cumulative values." />
+<meta property="og:description" content="You choose a slope for terminal half-life." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -90,79 +89,71 @@ Return a table of cumulative values." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculate Area Under the Curve (AUC) and Area Under the first Moment Curve (AUMC) in a table format</h1>
+    <h1>Determine slope for the log(y) and x regression manually</h1>
     
-    <div class="hidden name"><code>AUC.Rd</code></div>
+    <div class="hidden name"><code>DetSlope.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Calculate Area Under the Curve(AUC) and the first Moment Curve(AUMC) in two ways; 'linear trapezoidal method' or 'linear-up and log-down' method.
-Return a table of cumulative values.</p>
+    <p>You choose a slope for terminal half-life.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>AUC</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>down</span> <span class='kw'>=</span> <span class='st'>"Linear"</span>)</pre>
+    <pre class="usage"><span class='fu'>DetSlope</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>sel.1</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sel.2</span><span class='kw'>=</span><span class='fl'>0</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>vector values of independent variable, usually time</p></td>
+      <td><p>vector values of x-axis, usually time</p></td>
     </tr>
     <tr>
       <th>y</th>
-      <td><p>vector values of dependent variable, usually concentration</p></td>
+      <td><p>vector values of y-axis, usually concentration</p></td>
     </tr>
     <tr>
-      <th>down</th>
-      <td><p>either of <code>"Linear"</code> or <code>"Log"</code> to indicate the way to calculate AUC and AUMC</p></td>
+      <th>sel.1</th>
+      <td><p>default index of the first element to use</p></td>
+    </tr>
+    <tr>
+      <th>sel.2</th>
+      <td><p>default index of the last element to use</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>down="Linear"</code> means linear trapezoidal rule with linear interpolation.
-  <code>down="Log"</code> means linear-up and log-down method.</p>
+    <p>Sometimes <code>BestSlope</code> cannot find terminal slope satisfactorily. Then you can use this function to choose manually. It returns the same format result with <code>BestSlope</code> with an attribute indicating used points.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Table with two columns, <code>AUC</code> and <code>AUMC</code>; the first column values are cumulative AUCs and the second column values cumulative AUMCs.</p>
-    
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+    <p></p>
+<dt>R2</dt><dd><p>R-squared</p></dd>
+  <dt>R2ADJ</dt><dd><p>adjusted R-squared</p></dd>
+  <dt>LAMZNPT</dt><dd><p>number of points used for the slope</p></dd>
+  <dt>LAMZ</dt><dd><p>negative of the slope, lambda_z</p></dd>
+  <dt>b0</dt><dd><p>intercept of the regression line</p></dd>
+  <dt>CORRXY</dt><dd><p>correlation of log(y) and x</p></dd>
+  <dt>LAMZLL</dt><dd><p>earliest x for lambda_z</p></dd>
+  <dt>LAMZUL</dt><dd><p>last x for lambda_z</p></dd>
+  <dt>CLSTP</dt><dd><p>predicted y value at the last point, predicted concentration for the last time point</p></dd>
 
-    <p>Rowland M, Tozer TN. Clinical Pharmacokinetics and Pharmacodynamics - Concepts and Applications. 4th ed. pp687-689. 2011.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='LinAUC.html'>LinAUC</a></code>, <code><a href='LogAUC.html'>LogAUC</a></code></p></div>
+    <div class='dont-index'><p><code><a href='Slope.html'>Slope</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>AUC</span>(<span class='no'>Theoph</span>[<span class='no'>Theoph</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"Time"</span>], <span class='no'>Theoph</span>[<span class='no'>Theoph</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"conc"</span>])</div><div class='output co'>#&gt;             AUC        AUMC
-#&gt;  [1,]   0.00000    0.000000
-#&gt;  [2,]   0.44750    0.088750
-#&gt;  [3,]   1.95310    0.801534
-#&gt;  [4,]   6.64735    5.065382
-#&gt;  [5,]  15.71935   19.138321
-#&gt;  [6,]  32.13535   66.198241
-#&gt;  [7,]  42.97695  114.461665
-#&gt;  [8,]  58.25290  206.281512
-#&gt;  [9,]  72.75650  322.298798
-#&gt; [10,]  92.45055  528.521903
-#&gt; [11,] 148.92305 1459.071104</div><div class='input'><span class='fu'>AUC</span>(<span class='no'>Theoph</span>[<span class='no'>Theoph</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"Time"</span>], <span class='no'>Theoph</span>[<span class='no'>Theoph</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"conc"</span>], <span class='kw'>down</span><span class='kw'>=</span><span class='st'>"Log"</span>)</div><div class='output co'>#&gt;             AUC        AUMC
-#&gt;  [1,]   0.00000    0.000000
-#&gt;  [2,]   0.44750    0.088750
-#&gt;  [3,]   1.95310    0.801534
-#&gt;  [4,]   6.64735    5.065382
-#&gt;  [5,]  15.71410   19.243482
-#&gt;  [6,]  32.11090   66.830600
-#&gt;  [7,]  42.95189  115.151380
-#&gt;  [8,]  58.21173  207.426110
-#&gt;  [9,]  72.70744  323.774418
-#&gt; [10,]  92.36544  531.108538
-#&gt; [11,] 147.23475 1499.129085</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>DetSlope</span>(<span class='no'>Theoph</span>[<span class='no'>Theoph</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"Time"</span>], <span class='no'>Theoph</span>[<span class='no'>Theoph</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"conc"</span>])</div><div class='output co'>#&gt;      R2   R2ADJ LAMZNPT    LAMZ      b0  CORRXY  LAMZLL  LAMZUL   CLSTP 
+#&gt;      NA      NA       0      NA      NA      NA      NA      NA      NA 
+#&gt; attr(,"Points")
+#&gt; integer(0)</div><div class='input'><span class='fu'>DetSlope</span>(<span class='no'>Indometh</span>[<span class='no'>Indometh</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>2</span>, <span class='st'>"time"</span>], <span class='no'>Indometh</span>[<span class='no'>Indometh</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>2</span>, <span class='st'>"conc"</span>])</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots1.pdf")</span></div><div class='output co'>#&gt;      R2   R2ADJ LAMZNPT    LAMZ      b0  CORRXY  LAMZLL  LAMZUL   CLSTP 
+#&gt;      NA      NA       0      NA      NA      NA      NA      NA      NA 
+#&gt; attr(,"Points")
+#&gt; integer(0)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -172,8 +163,6 @@ Return a table of cumulative values.</p>
       <li><a href="#details">Details</a></li>
 
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

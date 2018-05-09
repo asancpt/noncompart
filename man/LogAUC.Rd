@@ -1,14 +1,14 @@
 \name{LogAUC}
 \alias{LogAUC}
 \title{Area Under the Curve(AUC) and Area Under the first Moment Curve(AUMC) by linear-up log-down method}
-\description{It calculates AUC and AUMC using linear-up log-down method}
+\description{It calculates AUC and AUMC using the linear-up log-down method}
 \usage{LogAUC(x, y)}
 \arguments{
-  \item{x}{vector values of independent variable, usually time}
-  \item{y}{vector values of dependent variable, usually concentration}
+  \item{x}{vector values of the independent variable, usually time}
+  \item{y}{vector values of the dependent variable, usually concentration}
 }
 \details{
-This function returns AUC and AUMC by linear-up log-down method.
+This function returns AUC and AUMC by the linear-up log-down method.
 }
 \value{
   \item{AUC}{area under the curve}

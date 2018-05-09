@@ -4,7 +4,7 @@
 Retuns a conversion factor for the amount calculation from urine concentration and volume  
 }
 \description{
-You can get a conversion factor for the mulplication: conc * vol * factor = amount in the given unit.
+You can get a conversion factor for the multiplication: conc * vol * factor = amount in the given unit.
 }
 \usage{
 UnitUrine(conU = "ng/mL", volU = "mL", amtU = "mg", MW = 0)

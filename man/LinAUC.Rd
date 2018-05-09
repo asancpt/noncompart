@@ -1,14 +1,14 @@
 \name{LinAUC}
 \alias{LinAUC}
 \title{Area Under the Curve(AUC) and Area Under the first Moment Curve(AUMC) by linear trapezoidal method}
-\description{It calculates AUC and AUMC using linear trapezoidal method}
+\description{It calculates AUC and AUMC using the linear trapezoidal method}
 \usage{LinAUC(x, y)}
 \arguments{
-  \item{x}{vector values of independent variable, usually time}
-  \item{y}{vector values of dependent variable, usually concentration}
+  \item{x}{vector values of the independent variable, usually time}
+  \item{y}{vector values of the dependent variable, usually concentration}
 }
 \details{
-This function returns AUC and AUMC by linear trapezoidal method.
+This function returns AUC and AUMC by the linear trapezoidal method.
 }
 \value{
   \item{AUC}{area under the curve}

@@ -1,6 +1,6 @@
 Package: NonCompart
-Version: 0.3.3
-Date: 2017-08-16 KST
+Version: 0.4.1
+Date: 2018-04-17 KST
 Title: Noncompartmental Analysis for Pharmacokinetic Data
 Description: Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. 'Phoenix(R) WinNonlin(R)' <https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>.
              Some features are
@@ -12,13 +12,12 @@ Description: Conduct a noncompartmental analysis as closely as possible to the m
 Depends: R (>= 2.0.0)
 Author: Kyun-Seop Bae [aut]
 Maintainer: Kyun-Seop Bae <k@acr.kr>
-Copyright: 2016-2017, Kyun-Seop Bae
+Copyright: 2016-2018, Kyun-Seop Bae
 License: GPL-3
 NeedsCompilation: no
 LazyLoad: yes
 Repository: CRAN
 URL: https://cran.r-project.org/package=NonCompart
-Packaged: 2017-08-16 14:46:09 UTC; K
-Date/Publication: 2017-08-16 15:25:27 UTC
+Packaged: 2018-04-16 12:00:56 UTC; Kyun-SeopBae
+Date/Publication: 2018-04-16 12:18:08 UTC
 Authors@R: person('Kyun-Seop', 'Bae', email = 'k@acr.kr', role = c('aut'))
-

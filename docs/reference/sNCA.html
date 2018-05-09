@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simplest NCA <U+2014> sNCA <U+653C><U+3E32>€γε<U+3E32> NonCompart</title>
+<title>Simplest NCA β€” sNCA β€Ά NonCompart</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Simplest NCA β€” sNCA" />
+
+<meta property="og:description" content="This is the work-horse function for NCA." />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +56,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">NonCompart</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">NonCompart</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -65,6 +78,7 @@
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -72,20 +86,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Simplest NCA</h1>
+    
+    <div class="hidden name"><code>sNCA.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>This is the work-horse function for NCA.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>dose</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>adm</span> <span class='kw'>=</span> <span class='st'>"Extravascular"</span>, <span class='kw'>dur</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>doseUnit</span> <span class='kw'>=</span> <span class='st'>"mg"</span>, <span class='kw'>timeUnit</span> <span class='kw'>=</span> <span class='st'>"h"</span>,
-     <span class='kw'>concUnit</span> <span class='kw'>=</span> <span class='st'>"ug/L"</span>, <span class='kw'>iAUC</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>down</span> <span class='kw'>=</span> <span class='st'>"Linear"</span>, <span class='kw'>MW</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>returnNA</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+     <span class='kw'>concUnit</span> <span class='kw'>=</span> <span class='st'>"ug/L"</span>, <span class='kw'>iAUC</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>down</span> <span class='kw'>=</span> <span class='st'>"Linear"</span>, <span class='kw'>R2ADJ</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>MW</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>returnNA</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -129,6 +147,10 @@
       <td><p>either of <code>"Linear"</code> or <code>"Log"</code> to indicate the way to calculate AUC and AUMC</p></td>
     </tr>
     <tr>
+      <th>R2ADJ</th>
+      <td><p>Lowest threshold of adjusted R-square value to do manual slope determination</p></td>
+    </tr>
+    <tr>
       <th>MW</th>
       <td><p>molecular weight of the drug</p></td>
     </tr>
@@ -153,14 +175,14 @@
   <dt>CLSTP</dt><dd><p>last positive concentration predicted, Clast_pred</p></dd>
   <dt>TLST</dt><dd><p>time of last positive concentration, Tlast</p></dd>
   <dt>LAMZHL</dt><dd><p>half-life by lambda z, ln(2)/LAMZ</p></dd>
-  <dt>LAMZ</dt><dd><p>lambda_z negative of best fit terminal slope</p></dd>
+  <dt>LAMZ</dt><dd><p>lambda_z negative of the best-fit terminal slope</p></dd>
   <dt>LAMZLL</dt><dd><p>earliest time for LAMZ</p></dd>
   <dt>LAMZUL</dt><dd><p>last time for LAMZ</p></dd>
   <dt>LAMZNPT</dt><dd><p>number of points for LAMZ</p></dd>
   <dt>CORRXY</dt><dd><p>correlation of log(concentration) and time</p></dd>
   <dt>R2</dt><dd><p>R-squared</p></dd>
   <dt>R2ADJ</dt><dd><p>R-squared adjusted</p></dd>
-  <dt>C0</dt><dd><p>back extrapolated concentration at time 0, for bolus intravascular administration only</p></dd>
+  <dt>C0</dt><dd><p>back extrapolated concentration at time 0, for intravascular bolus administration only</p></dd>
   <dt>AUCLST</dt><dd><p>AUC from 0 to TLST</p></dd>
   <dt>AUCALL</dt><dd><p>AUC using all the given points, including trailing zero concentrations</p></dd>
   <dt>AUCIFO</dt><dd><p>AUC infinity observed</p></dd>
@@ -200,7 +222,7 @@
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code>help</code>, <code><a href='tblNCA.html'>tblNCA</a></code></p>
+    <div class='dont-index'><p><code>help</code>, <code><a href='tblNCA.html'>tblNCA</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -498,11 +520,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

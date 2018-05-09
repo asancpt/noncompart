@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Choose best fit slope for the log(y) and x regression by the criteria of adjusted R-square <U+2014> BestSlope <U+653C><U+3E32>€γε<U+3E32> NonCompart</title>
+<title>Choose the best-fit slope for the log(y) and x regression by the criteria of adjusted R-square. β€” BestSlope β€Ά NonCompart</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,24 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Choose the best-fit slope for the log(y) and x regression by the criteria of adjusted R-square. β€” BestSlope" />
+
+<meta property="og:description" content="It sequentially fits (log(y) ~ x) from the last point of x to the previous points with at least 3 points.
+It chooses a slope the highest adjusted R-square.
+If the difference is less then 1e-4, it pickes longer slope." />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +58,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">NonCompart</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">NonCompart</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -65,6 +80,7 @@
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -72,21 +88,25 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Choose best fit slope for the log(y) and x regression by the criteria of adjusted R-square</h1>
+    <h1>Choose the best-fit slope for the log(y) and x regression by the criteria of adjusted R-square.</h1>
+    
+    <div class="hidden name"><code>BestSlope.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>It sequentially fits (log(y) ~ x) from the last point of x to the previous points with at least 3 points.
 It chooses a slope the highest adjusted R-square.
-If the difference is less then 1e-4, it chooses longer slope.</p>
+If the difference is less then 1e-4, it pickes longer slope.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>BestSlope</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>adm</span> <span class='kw'>=</span> <span class='st'>"Extravascular"</span>, <span class='kw'>TOL</span><span class='kw'>=</span><span class='fl'>1e-4</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -110,7 +130,7 @@ If the difference is less then 1e-4, it chooses longer slope.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Choosing the best terminal slope (y in log scale) in pharmacokinetic analysis is somewhat challenging, and it could vary by analysis performer.
-Pheonix WinNonlin chooses a slope with highest adjusted R-squared and the longest one. Difference of adjusted R-Squared less than TOL considered to be 0.  
+Pheonix WinNonlin chooses a slope with highest adjusted R-squared and the longest one. The difference of adjusted R-Squared less than TOL considered to be 0.  
 This function uses ordinary least square method (OLS).</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -119,17 +139,17 @@ This function uses ordinary least square method (OLS).</p>
 <dt>R2</dt><dd><p>R-squared</p></dd>
   <dt>R2ADJ</dt><dd><p>adjusted R-squared</p></dd>
   <dt>LAMZNPT</dt><dd><p>number of points used for slope</p></dd>
-  <dt>LAMZ</dt><dd><p>negative of slope, lambda_z</p></dd>
-  <dt>b0</dt><dd><p>intercept of regression line</p></dd>
+  <dt>LAMZ</dt><dd><p>negative of the slope, lambda_z</p></dd>
+  <dt>b0</dt><dd><p>intercept of the regression line</p></dd>
   <dt>CORRXY</dt><dd><p>correlation of log(y) and x</p></dd>
   <dt>LAMZLL</dt><dd><p>earliest x for lambda_z</p></dd>
   <dt>LAMZUL</dt><dd><p>last x for lambda_z</p></dd>
-  <dt>CLSTP</dt><dd><p>predicted y value at last point, predicted concentration for the last time point</p></dd>
+  <dt>CLSTP</dt><dd><p>predicted y value at the last point, predicted concentration for the last time point</p></dd>
 
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='Slope.html'>Slope</a></code></p>
+    <div class='dont-index'><p><code><a href='Slope.html'>Slope</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -167,11 +187,14 @@ This function uses ordinary least square method (OLS).</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

@@ -1,5 +1,17 @@
 \name{NEWS}
 \title{News for Package \pkg{NonCompart}}
+\section{Changes in version 0.4.1 (2018-04-17)}{
+  \itemize{
+    \item{Validation document is added.}
+    \item{\code{DetSlope} now accepts default slope from \code{BestSlope}.}
+    \item{Errata in manual corrected.}
+  }
+}
+\section{Changes in version 0.4.0 (2018-03-17)}{
+  \itemize{
+    \item{\code{DetSlope} function is added to determine slope manually.}
+  }
+}
 \section{Changes in version 0.3.3 (2017-08-16)}{
   \itemize{
     \item{\pkg{NonCompart} is more tolerable to the input error.}

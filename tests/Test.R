@@ -38,25 +38,25 @@ Rres = tblNCA(Theoph, "Subject", "Time", "conc", dose=320, down="Log", concUnit=
 if (!Equal(Wres, Rres)) stop("Test Failed!")
 
 Wres = read.csv("Final_Parameters_Pivoted_Indometh_Linear.csv")
-Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", concUnit="mg/L")
+Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", concUnit="mg/L", R2ADJ=0.8)
 if (!Equal(Wres, Rres)) stop("Test Failed!")
 
 Wres = read.csv("Final_Parameters_Pivoted_Indometh_Log.csv")
-Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", down="Log", concUnit="mg/L")
+Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", down="Log", concUnit="mg/L", R2ADJ=0.8)
 if (!Equal(Wres, Rres)) stop("Test Failed!")
 
 Wres = read.csv("Final_Parameters_Pivoted_Indometh_Linear_Infusion.csv")
-Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Infusion", dur=0.25, concUnit="mg/L")
+Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Infusion", dur=0.25, concUnit="mg/L", R2ADJ=0.8)
 if (!Equal(Wres, Rres)) stop("Test Failed!")
 
 Wres = read.csv("Final_Parameters_Pivoted_Indometh_Log_Infusion.csv")
-Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Infusion", dur=0.25, down="Log", concUnit="mg/L")
+Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Infusion", dur=0.25, down="Log", concUnit="mg/L", R2ADJ=0.8)
 if (!Equal(Wres, Rres)) stop("Test Failed!")
 
 Wres = read.csv("Final_Parameters_Pivoted_Indometh_Linear_Wrong_Extravascular.csv")
-Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, concUnit="mg/L")
+Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, concUnit="mg/L", R2ADJ=0.8)
 if (!Equal(Wres, Rres)) stop("Test Failed!")
 
 Wres = read.csv("Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv")
-Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, down="Log", concUnit="mg/L")
+Rres = tblNCA(Indometh, "Subject", "time", "conc", dose=25, down="Log", concUnit="mg/L", R2ADJ=0.8)
 if (!Equal(Wres, Rres)) stop("Test Failed!")

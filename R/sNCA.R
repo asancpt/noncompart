@@ -1,4 +1,4 @@
-sNCA = function(x, y, dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUnit="h", concUnit="ug/L", iAUC="", down="Linear", MW=0, returnNA=FALSE)
+sNCA = function(x, y, dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUnit="h", concUnit="ug/L", iAUC="", down="Linear", R2ADJ=0.9, MW=0, returnNA=FALSE)
 {
 # Author: Kyun-Seop Bae k@acr.kr
 # Last modification: 2017.8.14
@@ -97,7 +97,11 @@ sNCA = function(x, y, dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUni
   }
 
   tRes = BestSlope(x1, y1, adm)
-  if (length(tRes) != 9) tRes = c(NA, NA, 0, NA, NA, NA, NA, NA, NA)
+  if (tRes["LAMZNPT"] < 2) {
+    tRes = DetSlope(x1, y1)
+  } else if (tRes["R2ADJ"] < R2ADJ) {
+    tRes = DetSlope(x1, y1, sel.1=which(x1 == tRes["LAMZLL"]), sel.2=which(x1 == tRes["LAMZUL"]))
+  }
   Res[c("R2", "R2ADJ", "LAMZNPT", "LAMZ", "b0", "CORRXY", "LAMZLL", "LAMZUL", "CLSTP")] = tRes
   tabAUC = AUC(x3, y3, down)
   Res[c("AUCLST","AUMCLST")] = tabAUC[length(x3),]

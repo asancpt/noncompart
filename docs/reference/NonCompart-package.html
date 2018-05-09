@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Noncompartmental Analysis for Pharmacokinetic Data <U+2014> NonCompart-package <U+653C><U+3E32>€γε<U+3E32> NonCompart</title>
+<title>Noncompartmental Analysis for Pharmacokinetic Data β€” NonCompart-package β€Ά NonCompart</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Noncompartmental Analysis for Pharmacokinetic Data β€” NonCompart-package" />
+
+<meta property="og:description" content="It conducts a noncompartmental analysis(NCA) as closely as possible to the most widely used commercial pharmacokinetic analysis software." />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +56,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">NonCompart</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">NonCompart</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -65,6 +78,7 @@
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -72,15 +86,19 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Noncompartmental Analysis for Pharmacokinetic Data</h1>
+    
+    <div class="hidden name"><code>NonCompart-package.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>It conducts a noncompartmental analysis(NCA) as closely as possible to the most widely used commercial pharmacokinetic analysis software.</p>
     
+    </div>
 
         
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -242,7 +260,7 @@ tblNCA   to perform NCA for many subjects.
 #&gt; [31] "L"         "L"         "L/h"       "L/h"       "h"         "h"        
 #&gt; [37] "h"        </div><div class='input'>
 <span class='fu'><a href='tblNCA.html'>tblNCA</a></span>(<span class='no'>Indometh</span>, <span class='kw'>key</span><span class='kw'>=</span><span class='st'>"Subject"</span>, <span class='kw'>colTime</span><span class='kw'>=</span><span class='st'>"time"</span>, <span class='kw'>colConc</span><span class='kw'>=</span><span class='st'>"conc"</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>25</span>,
-       <span class='kw'>adm</span><span class='kw'>=</span><span class='st'>"Infusion"</span>, <span class='kw'>dur</span><span class='kw'>=</span><span class='fl'>0.5</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mg"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>)</div><div class='output co'>#&gt;      Subject b0                    CMAX   CMAXD    TMAX   TLAG CLST  
+       <span class='kw'>adm</span><span class='kw'>=</span><span class='st'>"Infusion"</span>, <span class='kw'>dur</span><span class='kw'>=</span><span class='fl'>0.5</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mg"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>, <span class='kw'>R2ADJ</span><span class='kw'>=</span><span class='fl'>0.9</span>)</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots7.pdf")</span></div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots8.pdf")</span></div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots9.pdf")</span></div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots10.pdf")</span></div><div class='output co'>#&gt;      Subject b0                    CMAX   CMAXD    TMAX   TLAG CLST  
 #&gt; [1,] "1"     "-1.72421059639646"   "1.5"  "0.06"   "0.25" "0"  "0.05"
 #&gt; [2,] "2"     "-0.175286858431038"  "2.03" "0.0812" "0.25" "0"  "0.08"
 #&gt; [3,] "3"     "0.155579544657487"   "2.72" "0.1088" "0.25" "0"  "0.08"
@@ -393,11 +411,14 @@ tblNCA   to perform NCA for many subjects.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

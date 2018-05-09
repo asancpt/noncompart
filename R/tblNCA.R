@@ -1,6 +1,6 @@
 tblNCA = function(concData, key="Subject", colTime="Time", colConc="conc", dose=0, 
          adm="Extravascular", dur=0, doseUnit="mg", timeUnit="h", concUnit="ug/L", 
-         down="Linear", MW=0)
+         down="Linear", R2ADJ=0.9, MW=0)
 {
 # Author: Kyun-Seop Bae k@acr.kr
 # Last modification: 2017.8.4
@@ -42,7 +42,7 @@ tblNCA = function(concData, key="Subject", colTime="Time", colConc="conc", dose=
     tData = eval(parse(text=strCond))
     if (nrow(tData) > 0) {
       tRes = sNCA(tData[,colTime], tData[,colConc], dose=dose[i], adm=adm, dur=dur, 
-                doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, 
+                doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, R2ADJ=R2ADJ,
                 down=down, MW=MW)
       Res = rbind(Res, c(ID=IDs[i,], tRes))
     }
