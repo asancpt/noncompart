@@ -1,11 +1,11 @@
-tblNCA = function(concData, key="Subject", colTime="Time", colConc="conc", dose=0, 
-         adm="Extravascular", dur=0, doseUnit="mg", timeUnit="h", concUnit="ug/L", 
+tblNCA = function(concData, key="Subject", colTime="Time", colConc="conc", dose=0,
+         adm="Extravascular", dur=0, doseUnit="mg", timeUnit="h", concUnit="ug/L",
          down="Linear", R2ADJ=0.9, MW=0)
 {
 # Author: Kyun-Seop Bae k@acr.kr
-# Last modification: 2017.8.4
-# Called by: 
-# Calls: sNCA, UT
+# Last modification: 2018.6.20
+# Called by:
+# Calls: sNCA
 # INPUT
 #   key: columns names of concData to be shown at the output table
 #   colTime: column for time in concData table
@@ -23,7 +23,7 @@ tblNCA = function(concData, key="Subject", colTime="Time", colConc="conc", dose=
 #   table of NCA result
 
   nKey = length(key)
-  IDs = unique(as.matrix(concData[,key], ncol=nKey))
+  IDs = unique(as.data.frame(concData[,key], ncol=nKey))
   nID = nrow(IDs)
 
   if (length(dose) == 1) {
@@ -34,14 +34,14 @@ tblNCA = function(concData, key="Subject", colTime="Time", colConc="conc", dose=
 
   Res = vector()
   for (i in 1:nID) {
-    strCond = paste0("concData[concData$", key[1], "=='", UT(IDs[i, 1]), "'")
+    strCond = paste0("concData[concData$", key[1], "==", IDs[i, 1])
     if (nKey > 1) {
-      for (j in 2:nKey) strCond = paste0(strCond, " & concData$", key[j], "=='", UT(IDs[i,j]), "'")
+      for (j in 2:nKey) strCond = paste0(strCond, " & concData$", key[j], "==", IDs[i,j])
     }
     strCond = paste0(strCond, ",]")
     tData = eval(parse(text=strCond))
     if (nrow(tData) > 0) {
-      tRes = sNCA(tData[,colTime], tData[,colConc], dose=dose[i], adm=adm, dur=dur, 
+      tRes = sNCA(tData[,colTime], tData[,colConc], dose=dose[i], adm=adm, dur=dur,
                 doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, R2ADJ=R2ADJ,
                 down=down, MW=MW)
       Res = rbind(Res, c(ID=IDs[i,], tRes))

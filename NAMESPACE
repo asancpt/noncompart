@@ -1,5 +1,5 @@
 exportPattern("^[[:alpha:]]+")
 importFrom("utils", "packageDescription", "packageVersion", "data")
 importFrom("graphics", "abline", "identify", "legend", "par", "plot", "points")
-importFrom("grDevices", "dev.new", "dev.cur", "dev.set")
+importFrom("grDevices", "dev.new", "dev.cur", "dev.set", "dev.off")
 importFrom("stats", "lm")

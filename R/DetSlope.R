@@ -1,20 +1,6 @@
 # interactive selcting points for terminal slope
 DetSlope = function(x, y, sel.1=0, sel.2=0)
 {
-# Inner function(s)
-  fPlot = function(x, y, sel)
-  {
-    if (a != 0 | b != 0) abline(a=a, b=b, col="white")
-    points(x, y, pch=21, col="white", bg="white", cex=2)
-    z = lm(y[sel] ~ x[sel])
-    a <<- z$coefficients[1]
-    b <<- z$coefficients[2]
-    abline(a=a, b=b)
-    legend("topright", paste0("Adj. R-square=", format(summary(z)$adj.r.squared, digits=3)), box.col="white", inset=0.01)
-    points(x[sel], y[sel], pch=16)
-    points(x[!sel], y[!sel], pch=4)
-  }
-
 # Check input
   x = x[y != 0]
   y = y[y != 0]
@@ -36,11 +22,6 @@ DetSlope = function(x, y, sel.1=0, sel.2=0)
   plot(x, y, xlab="Time", ylab="log(Concentration)", main="Choose points for terminal slope") # for time-concentration only
 
   sel = rep(FALSE, n1) # selection indictator
-  if (sel.1 > 0) {
-    sel[sel.1:sel.2] = TRUE
-    fPlot(x, y, sel)
-  }
-
   while (TRUE) {
 # Receive a point
     ans = identify(x, y, plot=FALSE, n=1)
@@ -52,28 +33,38 @@ DetSlope = function(x, y, sel.1=0, sel.2=0)
       sel[ans] = !sel[ans]
     }
 
-# Clear and Redraw
     if (sum(sel) > 1) {          # 2 points or more selected
       sel.1 = min(which(sel == TRUE))
       sel.2 = max(which(sel == TRUE))
-      fPlot(x, y, sel)
     } else if (sum(sel) == 1) {  # 1 point selected
       sel.1 = which(sel == TRUE)
       sel.2 = 0
-      points(x[sel], y[sel], pch=16)
-      points(x[!sel], y[!sel])
     } else {                     # no point selected -> reset
       sel.1 = 0
       sel.2 = 0
-      points(x, y)
     }
-  }
 
+# Clear
+    if (a != 0 | b != 0) abline(a=a, b=b, col="white")
+    points(x, y, pch=21, col="white", bg="white", cex=2)
+
+# Redraw
+    if (sum(sel) > 1) {
+      z = lm(y[sel] ~ x[sel])
+      a = z$coefficients[1]
+      b = z$coefficients[2]
+      abline(z)
+      legend("topright", paste0("Adj. R-square=", format(summary(z)$adj.r.squared, digits=3)), box.col="white", inset=0.01)
+    }
+    points(x[sel], y[sel], pch=16)
+    points(x[!sel], y[!sel], pch=4)
+  }
+  dev.off()
 # Restore and Return
   par(DefPar)
   options(locatorBell = OldOpt)
   Res = Slope(x[sel], y[sel])
-  attr(Res, "Points") = which(sel)
+  attr(Res, "UsedPoints") = which(sel)
   dev.set(SavedDev)
   return(Res)
 }

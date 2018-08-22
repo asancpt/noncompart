@@ -1,5 +1,15 @@
 \name{NEWS}
 \title{News for Package \pkg{NonCompart}}
+\section{Changes in version 0.4.3 (2018-05-17)}{
+  \itemize{
+    \item{\code{tblNCA} is rewritten.}
+  }
+}
+\section{Changes in version 0.4.2 (2018-05-17)}{
+  \itemize{
+    \item{Issue on reverse dependence on \code{ncar} is solved.}
+  }
+}
 \section{Changes in version 0.4.1 (2018-04-17)}{
   \itemize{
     \item{Validation document is added.}

@@ -97,11 +97,15 @@ sNCA = function(x, y, dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUni
   }
 
   tRes = BestSlope(x1, y1, adm)
-  if (tRes["LAMZNPT"] < 2) {
-    tRes = DetSlope(x1, y1)
-  } else if (tRes["R2ADJ"] < R2ADJ) {
-    tRes = DetSlope(x1, y1, sel.1=which(x1 == tRes["LAMZLL"]), sel.2=which(x1 == tRes["LAMZUL"]))
+  if (R2ADJ > 0) {
+    if (tRes["LAMZNPT"] < 2) {
+      tRes = DetSlope(x1, y1)
+    } else if (tRes["R2ADJ"] < R2ADJ) {
+      tRes = DetSlope(x1, y1, sel.1=which(x1 == tRes["LAMZLL"]), sel.2=which(x1 == tRes["LAMZUL"]))
+    }
   }
+  
+  attr(tRes, "UsedPoints") = attr(tRes, "UsedPoints") + which(x==tRes["LAMZLL"]) - which(x1==tRes["LAMZLL"]) ###
   Res[c("R2", "R2ADJ", "LAMZNPT", "LAMZ", "b0", "CORRXY", "LAMZLL", "LAMZUL", "CLSTP")] = tRes
   tabAUC = AUC(x3, y3, down)
   Res[c("AUCLST","AUMCLST")] = tabAUC[length(x3),]
@@ -175,6 +179,7 @@ sNCA = function(x, y, dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUni
   }
 
   attr(Res, "units") = c(Units[RetNames1,1], rep(Units["AUCLST",1], niAUC))
+  attr(Res, "UsedPoints") = attr(tRes, "UsedPoints")
   return(Res)
 }
 
