@@ -3,7 +3,7 @@ tblNCA = function(concData, key="Subject", colTime="Time", colConc="conc", dose=
          down="Linear", R2ADJ=0.9, MW=0)
 {
 # Author: Kyun-Seop Bae k@acr.kr
-# Last modification: 2018.6.20
+# Last modification: 2018.7.10
 # Called by:
 # Calls: sNCA
 # INPUT
@@ -34,9 +34,9 @@ tblNCA = function(concData, key="Subject", colTime="Time", colConc="conc", dose=
 
   Res = vector()
   for (i in 1:nID) {
-    strCond = paste0("concData[concData$", key[1], "==", IDs[i, 1])
+    strCond = paste0("concData[concData$", key[1], "=='", IDs[i, 1], "'")
     if (nKey > 1) {
-      for (j in 2:nKey) strCond = paste0(strCond, " & concData$", key[j], "==", IDs[i,j])
+      for (j in 2:nKey) strCond = paste0(strCond, " & concData$", key[j], "=='", IDs[i,j], "'")
     }
     strCond = paste0(strCond, ",]")
     tData = eval(parse(text=strCond))
@@ -44,9 +44,10 @@ tblNCA = function(concData, key="Subject", colTime="Time", colConc="conc", dose=
       tRes = sNCA(tData[,colTime], tData[,colConc], dose=dose[i], adm=adm, dur=dur,
                 doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, R2ADJ=R2ADJ,
                 down=down, MW=MW)
-      Res = rbind(Res, c(ID=IDs[i,], tRes))
+      Res = rbind(Res, tRes)
     }
   }
+  Res = cbind(IDs, Res)
   rownames(Res) = NULL
   colnames(Res)[1:nKey] = key
   attr(Res, "units") = c(rep("", nKey), attr(tRes, "units"))

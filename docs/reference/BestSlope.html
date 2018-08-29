@@ -21,9 +21,11 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
@@ -34,6 +36,7 @@
 It chooses a slope the highest adjusted R-square.
 If the difference is less then 1e-4, it pickes longer slope." />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -60,7 +63,7 @@ If the difference is less then 1e-4, it pickes longer slope." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NonCompart</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.1</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.4</span>
       </span>
     </div>
 
@@ -156,11 +159,15 @@ This function uses ordinary least square method (OLS).</p>
     <pre class="examples"><div class='input'><span class='fu'>BestSlope</span>(<span class='no'>Theoph</span>[<span class='no'>Theoph</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"Time"</span>], <span class='no'>Theoph</span>[<span class='no'>Theoph</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"conc"</span>])</div><div class='output co'>#&gt;         R2      R2ADJ    LAMZNPT       LAMZ         b0     CORRXY     LAMZLL 
 #&gt;  0.9999997  0.9999995  3.0000000  0.0484570  2.3687851 -0.9999999  9.0500000 
 #&gt;     LAMZUL      CLSTP 
-#&gt; 24.3700000  3.2801465 </div><div class='input'><span class='fu'>BestSlope</span>(<span class='no'>Indometh</span>[<span class='no'>Indometh</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"time"</span>], <span class='no'>Indometh</span>[<span class='no'>Indometh</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"conc"</span>],
+#&gt; 24.3700000  3.2801465 
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'><span class='fu'>BestSlope</span>(<span class='no'>Indometh</span>[<span class='no'>Indometh</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"time"</span>], <span class='no'>Indometh</span>[<span class='no'>Indometh</span>$<span class='no'>Subject</span><span class='kw'>==</span><span class='fl'>1</span>, <span class='st'>"conc"</span>],
           <span class='kw'>adm</span><span class='kw'>=</span><span class='st'>"Bolus"</span>)</div><div class='output co'>#&gt;          R2       R2ADJ     LAMZNPT        LAMZ          b0      CORRXY 
 #&gt;  0.99706673  0.99413345  3.00000000  0.15832048 -1.72421060 -0.99853229 
 #&gt;      LAMZLL      LAMZUL       CLSTP 
-#&gt;  5.00000000  8.00000000  0.05024851 </div></pre>
+#&gt;  5.00000000  8.00000000  0.05024851 
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

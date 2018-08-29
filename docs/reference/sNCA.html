@@ -21,9 +21,11 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
@@ -32,6 +34,7 @@
 
 <meta property="og:description" content="This is the work-horse function for NCA." />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -58,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NonCompart</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.1</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.4</span>
       </span>
     </div>
 
@@ -148,7 +151,7 @@
     </tr>
     <tr>
       <th>R2ADJ</th>
-      <td><p>Lowest threshold of adjusted R-square value to do manual slope determination</p></td>
+      <td><p>Minimum adjusted R-square value to determine terminal slope automatically</p></td>
     </tr>
     <tr>
       <th>MW</th>
@@ -248,7 +251,9 @@
 #&gt; [13] ""          ""          ""          ""          "h*mg/L"    "h*mg/L"   
 #&gt; [19] "h*mg/L"    "h*mg/L/mg" "h*mg/L"    "h*mg/L/mg" "%"         "%"        
 #&gt; [25] "h2*mg/L"   "h2*mg/L"   "h2*mg/L"   "%"         "%"         "L"        
-#&gt; [31] "L"         "L/h"       "L/h"       "h"         "h"         "h"        </div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>)</div><div class='output co'>#&gt;           b0         CMAX        CMAXD         TMAX         TLAG         CLST 
+#&gt; [31] "L"         "L/h"       "L/h"       "h"         "h"         "h"        
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>)</div><div class='output co'>#&gt;           b0         CMAX        CMAXD         TMAX         TLAG         CLST 
 #&gt;    2.3687851   10.5000000    0.0328125    1.1200000    0.0000000    3.2800000 
 #&gt;        CLSTP         TLST       LAMZHL         LAMZ       LAMZLL       LAMZUL 
 #&gt;    3.2801465   24.3700000   14.3043776    0.0484570    9.0500000   24.3700000 
@@ -266,7 +271,9 @@
 #&gt; [13] ""          ""          ""          ""          "h*mg/L"    "h*mg/L"   
 #&gt; [19] "h*mg/L"    "h*mg/L/mg" "h*mg/L"    "h*mg/L/mg" "%"         "%"        
 #&gt; [25] "h2*mg/L"   "h2*mg/L"   "h2*mg/L"   "%"         "%"         "L"        
-#&gt; [31] "L"         "L/h"       "L/h"       "h"         "h"         "h"        </div><div class='input'>
+#&gt; [31] "L"         "L/h"       "L/h"       "h"         "h"         "h"        
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'>
 <span class='no'>iAUC</span> <span class='kw'>=</span> <span class='fu'>data.frame</span>(<span class='kw'>Name</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='st'>"AUC[0-12h]"</span>,<span class='st'>"AUC[0-24h]"</span>), <span class='kw'>Start</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='kw'>End</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>12</span>,<span class='fl'>24</span>))
 <span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mg"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>iAUC</span><span class='kw'>=</span><span class='no'>iAUC</span>)</div><div class='output co'>#&gt;           b0         CMAX        CMAXD         TMAX         TLAG         CLST 
 #&gt;    2.3687851   10.5000000    0.0328125    1.1200000    0.0000000    3.2800000 
@@ -289,7 +296,9 @@
 #&gt; [19] "h*mg/L"    "h*mg/L/mg" "h*mg/L"    "h*mg/L/mg" "%"         "%"        
 #&gt; [25] "h2*mg/L"   "h2*mg/L"   "h2*mg/L"   "%"         "%"         "L"        
 #&gt; [31] "L"         "L/h"       "L/h"       "h"         "h"         "h"        
-#&gt; [37] "h*mg/L"    "h*mg/L"   </div><div class='input'>
+#&gt; [37] "h*mg/L"    "h*mg/L"   
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'>
 <span class='no'>MW</span> <span class='kw'>=</span> <span class='fl'>180.164</span> <span class='co'># Molecular weight of theophylline</span>
 
 <span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mg"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Molecular weight should be given for more informative results!</span></div><div class='output co'>#&gt;            b0          CMAX         CMAXD          TMAX          TLAG 
@@ -316,7 +325,9 @@
 #&gt; [21] "h*mmol/L"    "h*mmol/L/mg" "%"           "%"           "h2*mmol/L"  
 #&gt; [26] "h2*mmol/L"   "h2*mmol/L"   "%"           "%"           "L"          
 #&gt; [31] "L"           "L/h"         "L/h"         "h"           "h"          
-#&gt; [36] "h"          </div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mg"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;            b0          CMAX         CMAXD          TMAX          TLAG 
+#&gt; [36] "h"          
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mg"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;            b0          CMAX         CMAXD          TMAX          TLAG 
 #&gt; -2.8250824530  0.0582802336  0.0001821257  1.1200000000  0.0000000000 
 #&gt;          CLST         CLSTP          TLST        LAMZHL          LAMZ 
 #&gt;  0.0182056349  0.0182064479 24.3700000000 14.3043775711  0.0484569970 
@@ -340,7 +351,9 @@
 #&gt; [21] "h*mmol/L"    "h*mmol/L/mg" "%"           "%"           "h2*mmol/L"  
 #&gt; [26] "h2*mmol/L"   "h2*mmol/L"   "%"           "%"           "L"          
 #&gt; [31] "L"           "L/h"         "L/h"         "h"           "h"          
-#&gt; [36] "h"          </div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>/<span class='no'>MW</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mmol"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;           b0         CMAX        CMAXD         TMAX         TLAG         CLST 
+#&gt; [36] "h"          
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>/<span class='no'>MW</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mmol"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;           b0         CMAX        CMAXD         TMAX         TLAG         CLST 
 #&gt;    2.3687851   10.5000000    5.9116312    1.1200000    0.0000000    3.2800000 
 #&gt;        CLSTP         TLST       LAMZHL         LAMZ       LAMZLL       LAMZUL 
 #&gt;    3.2801465   24.3700000   14.3043776    0.0484570    9.0500000   24.3700000 
@@ -360,7 +373,9 @@
 #&gt; [21] "h*mg/L"      "h*mg/L/mmol" "%"           "%"           "h2*mg/L"    
 #&gt; [26] "h2*mg/L"     "h2*mg/L"     "%"           "%"           "L"          
 #&gt; [31] "L"           "L/h"         "L/h"         "h"           "h"          
-#&gt; [36] "h"          </div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>/<span class='no'>MW</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mmol"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;          b0        CMAX       CMAXD        TMAX        TLAG        CLST 
+#&gt; [36] "h"          
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>/<span class='no'>MW</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mmol"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;          b0        CMAX       CMAXD        TMAX        TLAG        CLST 
 #&gt; -2.82508245  0.05828023  0.03281250  1.12000000  0.00000000  0.01820563 
 #&gt;       CLSTP        TLST      LAMZHL        LAMZ      LAMZLL      LAMZUL 
 #&gt;  0.01820645 24.37000000 14.30437757  0.04845700  9.05000000 24.37000000 
@@ -381,7 +396,9 @@
 #&gt; [21] "h*mmol/L"      "h*mmol/L/mmol" "%"             "%"            
 #&gt; [25] "h2*mmol/L"     "h2*mmol/L"     "h2*mmol/L"     "%"            
 #&gt; [29] "%"             "L"             "L"             "L/h"          
-#&gt; [33] "L/h"           "h"             "h"             "h"            </div><div class='input'>
+#&gt; [33] "L/h"           "h"             "h"             "h"            
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'>
 <span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>/<span class='no'>MW</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mmol"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;          b0        CMAX       CMAXD        TMAX        TLAG        CLST 
 #&gt; -2.82508245  0.05828023  0.03281250  1.12000000  0.00000000  0.01820563 
 #&gt;       CLSTP        TLST      LAMZHL        LAMZ      LAMZLL      LAMZUL 
@@ -403,7 +420,9 @@
 #&gt; [21] "h*mmol/L"      "h*mmol/L/mmol" "%"             "%"            
 #&gt; [25] "h2*mmol/L"     "h2*mmol/L"     "h2*mmol/L"     "%"            
 #&gt; [29] "%"             "L"             "L"             "L/h"          
-#&gt; [33] "L/h"           "h"             "h"             "h"            </div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mmol"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;          b0        CMAX       CMAXD        TMAX        TLAG        CLST 
+#&gt; [33] "L/h"           "h"             "h"             "h"            
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mmol"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>, <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;          b0        CMAX       CMAXD        TMAX        TLAG        CLST 
 #&gt; -2.82508245  0.05828023          NA  1.12000000  0.00000000  0.01820563 
 #&gt;       CLSTP        TLST      LAMZHL        LAMZ      LAMZLL      LAMZUL 
 #&gt;  0.01820645 24.37000000 14.30437757  0.04845700  9.05000000 24.37000000 
@@ -424,7 +443,9 @@
 #&gt; [21] "h*mmol/L"      "h*mmol/L/mmol" "%"             "%"            
 #&gt; [25] "h2*mmol/L"     "h2*mmol/L"     "h2*mmol/L"     "%"            
 #&gt; [29] "%"             "L"             "L"             "L/h"          
-#&gt; [33] "L/h"           "h"             "h"             "h"            </div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fu'>as.numeric</span>(<span class='fl'>NA</span>), <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mmol"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>,
+#&gt; [33] "L/h"           "h"             "h"             "h"            
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>/<span class='no'>MW</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fu'>as.numeric</span>(<span class='fl'>NA</span>), <span class='kw'>doseUnit</span><span class='kw'>=</span><span class='st'>"mmol"</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mmol/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"h"</span>,
      <span class='kw'>MW</span><span class='kw'>=</span><span class='no'>MW</span>)</div><div class='output co'>#&gt;          b0        CMAX       CMAXD        TMAX        TLAG        CLST 
 #&gt; -2.82508245  0.05828023          NA  1.12000000  0.00000000  0.01820563 
 #&gt;       CLSTP        TLST      LAMZHL        LAMZ      LAMZLL      LAMZUL 
@@ -446,7 +467,9 @@
 #&gt; [21] "h*mmol/L"      "h*mmol/L/mmol" "%"             "%"            
 #&gt; [25] "h2*mmol/L"     "h2*mmol/L"     "h2*mmol/L"     "%"            
 #&gt; [29] "%"             "L"             "L"             "L/h"          
-#&gt; [33] "L/h"           "h"             "h"             "h"            </div><div class='input'>
+#&gt; [33] "L/h"           "h"             "h"             "h"            
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'>
 <span class='fu'>sNCA</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"hr"</span>)</div><div class='output co'>#&gt;           b0         CMAX        CMAXD         TMAX         TLAG         CLST 
 #&gt;    2.3687851   10.5000000    0.0328125    1.1200000    0.0000000    3.2800000 
 #&gt;        CLSTP         TLST       LAMZHL         LAMZ       LAMZLL       LAMZUL 
@@ -467,7 +490,9 @@
 #&gt; [21] "hr*mg/L"    "hr*mg/L/mg" "%"          "%"          "hr2*mg/L"  
 #&gt; [26] "hr2*mg/L"   "hr2*mg/L"   "%"          "%"          "L"         
 #&gt; [31] "L"          "L/hr"       "L/hr"       "hr"         "hr"        
-#&gt; [36] "hr"        </div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>*<span class='fl'>60</span>, <span class='no'>y</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"min"</span>)</div><div class='output co'>#&gt;            b0          CMAX         CMAXD          TMAX          TLAG 
+#&gt; [36] "hr"        
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div><div class='input'><span class='fu'>sNCA</span>(<span class='no'>x</span>*<span class='fl'>60</span>, <span class='no'>y</span>, <span class='kw'>dose</span><span class='kw'>=</span><span class='fl'>320</span>, <span class='kw'>concUnit</span><span class='kw'>=</span><span class='st'>"mg/L"</span>, <span class='kw'>timeUnit</span><span class='kw'>=</span><span class='st'>"min"</span>)</div><div class='output co'>#&gt;            b0          CMAX         CMAXD          TMAX          TLAG 
 #&gt;  2.368785e+00  1.050000e+01  3.281250e-02  6.720000e+01  0.000000e+00 
 #&gt;          CLST         CLSTP          TLST        LAMZHL          LAMZ 
 #&gt;  3.280000e+00  3.280146e+00  1.462200e+03  8.582627e+02  8.076166e-04 
@@ -491,7 +516,9 @@
 #&gt; [21] "min*mg/L"    "min*mg/L/mg" "%"           "%"           "min2*mg/L"  
 #&gt; [26] "min2*mg/L"   "min2*mg/L"   "%"           "%"           "L"          
 #&gt; [31] "L"           "L/min"       "L/min"       "min"         "min"        
-#&gt; [36] "min"        </div></pre>
+#&gt; [36] "min"        
+#&gt; attr(,"UsedPoints")
+#&gt; [1]  9 10 11</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

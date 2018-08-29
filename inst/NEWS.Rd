@@ -1,5 +1,10 @@
 \name{NEWS}
 \title{News for Package \pkg{NonCompart}}
+\section{Changes in version 0.4.4 (2018-07-20)}{
+  \itemize{
+    \item{Nonnumeric Subject ID is supported.}
+  }
+}
 \section{Changes in version 0.4.3 (2018-05-17)}{
   \itemize{
     \item{\code{tblNCA} is rewritten.}
