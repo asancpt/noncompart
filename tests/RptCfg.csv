@@ -1,49 +1,49 @@
-"PPTESTCD","SYNONYM","NCI","WNL","ExtravascularDefault","ExtravascularWNL","BolusDefault","BolusWNL","InfusionDefault","InfusionWNL"
-"b0","Intercept","Intercept of regression","b0",0,0,0,0,0,0
-"TLAG","Time Until First Nonzero Conc","Time until First Nonzero Concentration","Tlag",4,9,0,0,0,0
-"MRTEVLST","MRT Extravasc to Last Nonzero Conc","Mean Residence Time to Last Nonzero Concentration by Extravascular Dose","MRTlast",29,32,0,0,0,0
-"MRTEVIFO","MRT Extravasc Infinity Obs","Mean Residence Time Infinity Observed by Extravascular Dose","MRTINF_obs",30,33,0,0,0,0
-"MRTEVIFP","MRT Extravasc Infinity Pred","Mean Residence Time Infinity Predicted by Extravascular Dose","MRTINF_pred",31,34,0,0,0,0
-"VZFO","Vz Obs by F","Observed Volume of Distribution of Absorbed Fraction","Vz_F_obs",32,20,0,0,0,0
-"VZFP","Vz Pred by F","Predicted Volume of Distribution of Absorbed Fraction","Vz_F_pred",33,25,0,0,0,0
-"CLFO","Total CL Obs by F","Observed Total Body Clearance by Fraction of Dose Absorbed","Cl_F_obs",34,21,0,0,0,0
-"CLFP","Total CL Pred by F","Predicted Total Body Clearance by Fraction of Dose Absorbed","Cl_F_pred",35,26,0,0,0,0
-"C0","Initial Conc","Initial Concentration","C0",0,0,4,12,0,0
-"AUCPBEO","AUC %Back Extrapolation Obs","Observed Area Under the Curve Percent Back Extrapolation","AUC_.Back_Ext_obs",0,0,5,20,0,0
-"AUCPBEP","AUC %Back Extrapolation Pred","Predicted Area Under the Curve Percent Back Extrapolation","AUC_.Back_Ext_pred",0,0,6,26,0,0
-"CMAX","Max Conc","Cmax","Cmax",1,11,1,10,1,10
-"CMAXD","Max Conc Norm by Dose","Maximum Concentration Dose Normalized","Cmax_D",2,12,2,11,2,11
-"TMAX","Time of CMAX","Tmax","Tmax",3,10,3,9,3,9
-"CLST","Last Nonzero Conc","Last Concentration","Clast",5,14,7,14,4,13
-"TLST","Time of Last Nonzero Conc","Time of Last Nonzero Concentration","Tlast",7,13,9,13,5,12
-"CLSTP","Last Nonzero Conc Pred","Predicted Last Concentration","Clast_pred",6,0,8,0,6,0
-"LAMZHL","Half-Life Lambda z","Terminal Half Life","HL_Lambda_z",8,8,10,8,7,8
-"LAMZ","Lambda z","Lambda Z","Lambda_z",9,5,11,5,8,5
-"LAMZLL","Lambda z Lower Limit","Lambda Z Time Lower Limit","Lambda_z_lower",10,6,12,6,9,6
-"LAMZUL","Lambda z Upper Limit","Lambda Z Time Upper Limit","Lambda_z_upper",11,7,13,7,10,7
-"LAMZNPT","Number of Points for Lambda z","Sum of Lambda Z Timepoints","No_points_lambda_z",12,4,14,4,11,4
-"CORRXY","Correlation Between TimeX and Log ConcY","Time and Log Concentration Correlation","Corr_XY",13,3,15,3,12,3
-"R2","R Squared","R Squared","Rsq",14,1,16,1,13,1
-"R2ADJ","R Squared Adjusted","Adjusted R Squared","Rsq_adjusted",15,2,17,2,14,2
-"AUCLST","AUC to Last Nonzero Conc","Area Under the Curve From Dosing to Last Concentration","AUClast",16,15,18,15,15,14
-"AUCALL","AUC All","Area Under the Curve All","AUCall",17,16,19,16,16,15
-"AUCIFO","AUC Infinity Obs","Observed Area Under the Curve Infinity","AUCINF_obs",18,17,20,17,17,16
-"AUCIFOD","AUC Infinity Obs Norm by Dose","AUC Infinity Observed Normalized by Dose","AUCINF_D_obs",19,18,21,18,18,17
-"AUCPEO","AUC %Extrapolation Obs","Observed Area Under the Curve Percent Extrapolation","AUC_.Extrap_obs",20,19,22,19,20,18
-"AUCIFP","AUC Infinity Pred","Predicted Area Under the Curve Infinity","AUCINF_pred",21,22,23,23,21,21
-"AUCIFPD","AUC Infinity Pred Norm by Dose","Predicted Area Under the Curve Infinity by Dose","AUCINF_D_pred",22,23,24,24,22,22
-"AUCPEP","AUC %Extrapolation Pred","Predicted Area Under the Curve Percent Extrapolation","AUC_.Extrap_pred",23,24,25,25,22,23
-"AUMCLST","AUMC to Last Nonzero Conc","Area Under the First Moment Curve From Dosing to Last Concentration","AUMClast",24,27,26,29,23,26
-"AUMCIFO","AUMC Infinity Obs","Observed Area Under the First Moment Curve Infinity","AUMCINF_obs",25,28,27,30,24,27
-"AUMCPEO","AUMC %Extrapolation Obs","Observed Area Under the First Moment Curve Percent Extrapolation","AUMC_.Extrap_obs",26,29,28,31,25,28
-"AUMCIFP","AUMC Infinity Pred","Predicted Area Under the First Moment Curve Infinity","AUMCINF_pred",27,30,29,32,26,29
-"AUMCPEP","AUMC % Extrapolation Pred","Predicted Area Under the First Moment Curve Percent Extrapolation","AUMC_.Extrap_pred",28,31,30,33,27,30
-"MRTIVLST","MRT Intravasc to Last Nonzero Conc","Mean Residence Time to Last Nonzero Concentration by Intravascular Dose","MRTlast",0,0,31,34,28,31
-"MRTIVIFO","MRT Intravasc Infinity Obs","Mean Residence Time Infinity Observed by Intravascular Dose","MRTINF_obs",0,0,32,35,29,32
-"MRTIVIFP","MRT Intravasc Infinity Pred","Mean Residence Time Infinity Predicted by Intravascular Dose","MRTINF_pred",0,0,33,36,30,33
-"VZO","Vz Obs","Observed Volume of Distribution","Vz_obs",0,0,34,21,31,19
-"VZP","Vz Pred","Predicted Volume of Distribution","Vz_pred",0,0,35,27,32,24
-"CLO","Total CL Obs","Observed Total Body Clearance Rate","Cl_obs",0,0,36,22,33,20
-"CLP","Total CL Pred","Predicted Total Body Clearance Rate","Cl_pred",0,0,37,28,34,25
-"VSSO","Vol Dist Steady State Obs","Observed Steady State Volume of Distribution","Vss_obs",0,0,38,37,35,34
-"VSSP","Vol Dist Steady State Pred","Predicted Steady State Volume of Distribution","Vss_pred",0,0,39,38,36,35
+PPTESTCD,SYNONYM,NCI,ExtravascularDefault,BolusDefault,InfusionDefault
+b0,Intercept,Intercept of regression,0,0,0
+TLAG,Time Until First Nonzero Conc,Time until First Nonzero Concentration,4,0,0
+MRTEVLST,MRT Extravasc to Last Nonzero Conc,Mean Residence Time to Last Nonzero Concentration by Extravascular Dose,29,0,0
+MRTEVIFO,MRT Extravasc Infinity Obs,Mean Residence Time Infinity Observed by Extravascular Dose,30,0,0
+MRTEVIFP,MRT Extravasc Infinity Pred,Mean Residence Time Infinity Predicted by Extravascular Dose,31,0,0
+VZFO,Vz Obs by F,Observed Volume of Distribution of Absorbed Fraction,32,0,0
+VZFP,Vz Pred by F,Predicted Volume of Distribution of Absorbed Fraction,33,0,0
+CLFO,Total CL Obs by F,Observed Total Body Clearance by Fraction of Dose Absorbed,34,0,0
+CLFP,Total CL Pred by F,Predicted Total Body Clearance by Fraction of Dose Absorbed,35,0,0
+C0,Initial Conc,Initial Concentration,0,4,0
+AUCPBEO,AUC %Back Extrapolation Obs,Observed Area Under the Curve Percent Back Extrapolation,0,5,0
+AUCPBEP,AUC %Back Extrapolation Pred,Predicted Area Under the Curve Percent Back Extrapolation,0,6,0
+CMAX,Max Conc,Cmax,1,1,1
+CMAXD,Max Conc Norm by Dose,Maximum Concentration Dose Normalized,2,2,2
+TMAX,Time of CMAX,Tmax,3,3,3
+CLST,Last Nonzero Conc,Last Concentration,5,7,4
+TLST,Time of Last Nonzero Conc,Time of Last Nonzero Concentration,7,9,5
+CLSTP,Last Nonzero Conc Pred,Predicted Last Concentration,6,8,6
+LAMZHL,Half-Life Lambda z,Terminal Half Life,8,10,7
+LAMZ,Lambda z,Lambda Z,9,11,8
+LAMZLL,Lambda z Lower Limit,Lambda Z Time Lower Limit,10,12,9
+LAMZUL,Lambda z Upper Limit,Lambda Z Time Upper Limit,11,13,10
+LAMZNPT,Number of Points for Lambda z,Sum of Lambda Z Timepoints,12,14,11
+CORRXY,Correlation Between TimeX and Log ConcY,Time and Log Concentration Correlation,13,15,12
+R2,R Squared,R Squared,14,16,13
+R2ADJ,R Squared Adjusted,Adjusted R Squared,15,17,14
+AUCLST,AUC to Last Nonzero Conc,Area Under the Curve From Dosing to Last Concentration,16,18,15
+AUCALL,AUC All,Area Under the Curve All,17,19,16
+AUCIFO,AUC Infinity Obs,Observed Area Under the Curve Infinity,18,20,17
+AUCIFOD,AUC Infinity Obs Norm by Dose,AUC Infinity Observed Normalized by Dose,19,21,18
+AUCPEO,AUC %Extrapolation Obs,Observed Area Under the Curve Percent Extrapolation,20,22,20
+AUCIFP,AUC Infinity Pred,Predicted Area Under the Curve Infinity,21,23,21
+AUCIFPD,AUC Infinity Pred Norm by Dose,Predicted Area Under the Curve Infinity by Dose,22,24,22
+AUCPEP,AUC %Extrapolation Pred,Predicted Area Under the Curve Percent Extrapolation,23,25,22
+AUMCLST,AUMC to Last Nonzero Conc,Area Under the First Moment Curve From Dosing to Last Concentration,24,26,23
+AUMCIFO,AUMC Infinity Obs,Observed Area Under the First Moment Curve Infinity,25,27,24
+AUMCPEO,AUMC %Extrapolation Obs,Observed Area Under the First Moment Curve Percent Extrapolation,26,28,25
+AUMCIFP,AUMC Infinity Pred,Predicted Area Under the First Moment Curve Infinity,27,29,26
+AUMCPEP,AUMC % Extrapolation Pred,Predicted Area Under the First Moment Curve Percent Extrapolation,28,30,27
+MRTIVLST,MRT Intravasc to Last Nonzero Conc,Mean Residence Time to Last Nonzero Concentration by Intravascular Dose,0,31,28
+MRTIVIFO,MRT Intravasc Infinity Obs,Mean Residence Time Infinity Observed by Intravascular Dose,0,32,29
+MRTIVIFP,MRT Intravasc Infinity Pred,Mean Residence Time Infinity Predicted by Intravascular Dose,0,33,30
+VZO,Vz Obs,Observed Volume of Distribution,0,34,31
+VZP,Vz Pred,Predicted Volume of Distribution,0,35,32
+CLO,Total CL Obs,Observed Total Body Clearance Rate,0,36,33
+CLP,Total CL Pred,Predicted Total Body Clearance Rate,0,37,34
+VSSO,Vol Dist Steady State Obs,Observed Steady State Volume of Distribution,0,38,35
+VSSP,Vol Dist Steady State Pred,Predicted Steady State Volume of Distribution,0,39,36

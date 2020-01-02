@@ -1,4 +1,4 @@
-0cb53b8b3746ea1c12e9ffc7c86e3c45 *DESCRIPTION
+1b75a48e0b630894c979ad3aa9594d81 *DESCRIPTION
 aad8950cd2df3664a26e10a1424dc339 *NAMESPACE
 825891cf0737946007ffb96381c65a5e *R/AUC.R
 c405b86c9d06547ab4358f4679e5b3a3 *R/BestSlope.R
@@ -11,11 +11,10 @@ cf15098800a26e8ff3fe0ff72afe6f22 *R/Slope.R
 d6d7227cc2a09475f5cfb243ae13052b *R/UT.R
 93266f711810ca971deb3ce5e644f35a *R/Unit.R
 656248477ec116013cc07b0d7318b214 *R/UnitUrine.R
-75be75419cd0ac34ac4581333511ef22 *R/sNCA.R
+983cd0d9b754747fbf9a823c623569ea *R/sNCA.R
 704b4aab7c78c6d2dff6969b2606ab8d *R/tblNCA.R
-bb9fa68f72c7cba047bc716b89db5350 *inst/NEWS.Rd
-f5c8e622963b0f8789515ad3e954cc83 *inst/doc/NonCompart-manual.pdf
-fa74788fb2b0aa1e4832cfb91581cdd7 *inst/doc/NonCompart-validation.pdf
+c64d669df7f30e7e27248c6c63a06100 *inst/NEWS.Rd
+2f3226b0604d560372ea7006394404ed *inst/doc/NonCompart-manual.pdf
 6ac81423c742520910cd9804b3a9377f *man/AUC.Rd
 18955cfcebe5bd0550541ed686fa3945 *man/BestSlope.Rd
 a7bc6e0f43eae6ab67690b098a370094 *man/DetSlope.Rd
@@ -23,7 +22,7 @@ a7bc6e0f43eae6ab67690b098a370094 *man/DetSlope.Rd
 9e813fc70db0e45f921b97bc89b116ae *man/Interpol.Rd
 b912676b2ac617345828124befa206ac *man/LinAUC.Rd
 2da8f756273028a04081332af31294ba *man/LogAUC.Rd
-b51452e7b888afbf83bd968f69a038a6 *man/NonCompart-package.Rd
+b7a673011c6079d4fd320641e11a4d0b *man/NonCompart-package.Rd
 9a33990824530c3afb2c9cb983b92b0f *man/Slope.Rd
 d020af639397cd643a39c11a62ddf42d *man/UT.Rd
 3defc1cf65d1836cf2bfc3a5c797a0b7 *man/Unit.Rd
@@ -39,5 +38,5 @@ d65c46193b44ada04d83e49c1b0ef238 *tests/Final_Parameters_Pivoted_Indometh_Log.cs
 a1e9c2cd76b2dfd0f32825ee40f49102 *tests/Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv
 7f06db923eafbe759e603f74fbd8e6a1 *tests/Final_Parameters_Pivoted_Theoph_Linear.csv
 4161b04a1d32e2b074c2338a1d7f8f3b *tests/Final_Parameters_Pivoted_Theoph_Log.csv
-4b16ad1d10810c141e1c3d44d194358d *tests/RptCfg.csv
+c689628c05f2d867239394fcb35aa674 *tests/RptCfg.csv
 9106ec53d002faab55ac42321725d3f4 *tests/Test.R

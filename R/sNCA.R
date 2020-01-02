@@ -69,8 +69,8 @@ sNCA = function(x, y, dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUni
   x0 = x[1:iLastNonZero] # Till Non-zero concentration. i.e. removing trailing zeros
   y0 = y[1:iLastNonZero] # Till Non-zero concentration. i.e. removing trailing zeros
 
-  x1 = x0[y0 != 0]             # remove all points with zeros in y (including mid) for LAMZ
-  y1 = y0[y0 != 0]             # remove all points with zeros in y
+  x1 = x0[y0 != 0]       # remove all points with zeros in y (including mid) for LAMZ
+  y1 = y0[y0 != 0]       # remove all points with zeros in y
 
   if (UT(adm) == "BOLUS") {
     if (y[1] > y[2] & y[2] > 0) {

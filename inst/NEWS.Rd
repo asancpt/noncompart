@@ -1,5 +1,10 @@
 \name{NEWS}
 \title{News for Package \pkg{NonCompart}}
+\section{Changes in version 0.4.5 (2019-09-28)}{
+  \itemize{
+    \item{Some sentences are revised.}
+  }
+}
 \section{Changes in version 0.4.4 (2018-07-20)}{
   \itemize{
     \item{Nonnumeric Subject ID is supported.}

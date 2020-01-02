@@ -4,7 +4,7 @@
 \docType{package}
 \title{Noncompartmental Analysis for Pharmacokinetic Data}
 \description{
-It conducts a noncompartmental analysis(NCA) as closely as possible to the most widely used commercial pharmacokinetic analysis software.
+It conducts a noncompartmental analysis(NCA) with industrial strength.
 }
 \details{
 The main functions are
