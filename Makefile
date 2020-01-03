@@ -22,7 +22,7 @@ rd2pdf:
 
 pkgdown: 
 	rm -rf docs ;\
-	Rscript -e "Sys.setlocale('LC_ALL', 'C'); pkgdown::build_site(document = FALSE)" 
+	Rscript -e "Sys.setlocale('LC_ALL', 'C'); pkgdown::build_site()" 
 
 readme: 
 	Rscript -e "rmarkdown::render('README.Rmd', output_format = 'github_document')"
