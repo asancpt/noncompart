@@ -1,11 +1,11 @@
 \name{tblNCA}
 \alias{tblNCA}
 \title{Table output NCA}
-\description{Do multiple NCA and returns a result table.}
+\description{Do multiple NCA and returns a result table. See \code{sNCA} for more detail i.e. \code{iAUC}}
 \usage{
 tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0, 
        adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit = "h", 
-       concUnit = "ug/L", down = "Linear", R2ADJ = 0.9, MW = 0)
+       concUnit = "ug/L", down = "Linear", R2ADJ = 0.9, MW = 0, iAUC="")
 }
 \arguments{
   \item{concData}{concentration data table}
@@ -21,6 +21,7 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
   \item{down}{method to calculate AUC, \code{"Linear"} or \code{"Log"}}
   \item{R2ADJ}{Lowest threshold of adjusted R-square value to do manual slope determination}
   \item{MW}{molecular weight of drug}
+  \item{iAUC}{data.frame for interval AUC}
 }
 \value{Basically same with \code{\link{sNCA}}}
 \author{Kyun-Seop Bae <k@acr.kr>}

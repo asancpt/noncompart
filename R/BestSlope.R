@@ -58,6 +58,10 @@ BestSlope = function(x, y, adm="Extravascular", TOL=1e-4)
   } else {
     Result["LAMZNPT"] = 0
   }
-  attr(Result, "UsedPoints") = which(x==Result["LAMZLL"]):which(x==Result["LAMZUL"])
+  if (Result["LAMZNPT"] > 0) {
+    attr(Result, "UsedPoints") = which(x==Result["LAMZLL"]):which(x==Result["LAMZUL"])
+  } else {
+    attr(Result, "UsedPoints") = NULL
+  }
   return(Result)
 }

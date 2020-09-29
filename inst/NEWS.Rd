@@ -1,5 +1,15 @@
 \name{NEWS}
 \title{News for Package \pkg{NonCompart}}
+\section{Changes in version 0.4.7 (2020-01-02)}{
+  \itemize{
+    \item{When impossible to determining slope, it skipe.}
+  }
+}
+\section{Changes in version 0.4.6 (2020-01-02)}{
+  \itemize{
+    \item{tblNCA supports iAUC argument.}
+  }
+}
 \section{Changes in version 0.4.5 (2019-09-28)}{
   \itemize{
     \item{Some sentences are revised.}
