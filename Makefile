@@ -1,24 +1,24 @@
 all: cran pkgdown readme
 
 cran: build rd2pdf
-	R CMD check --as-cran ../caffsim_*.tar.gz ;\ 
-	mv ../caffsim_*.tar.gz releases/
+	R CMD check --as-cran ../NonCompart_*.tar.gz ;\ 
+	mv ../NonCompart_*.tar.gz releases/
 
 install:
 	cd .. ;\
-	R CMD INSTALL --no-multiarch --with-keep.source caffsim
+	R CMD INSTALL --no-multiarch --with-keep.source NonCompart
 
 roxygen: install
-	Rscript -e "library(caffsim);roxygen2::roxygenise()" 
+	Rscript -e "library(NonCompart);roxygen2::roxygenise()" 
 
 build: roxygen
 	Rscript -e "devtools::build()" 
 
 rd2pdf:
 	cd .. ;\
-	rm caffsim.pdf caffsim/inst/doc/caffsim.pdf ;\
-	 R CMD Rd2pdf caffsim ;\
-	cp caffsim.pdf caffsim/inst/doc/caffsim.pdf
+	rm NonCompart.pdf NonCompart/inst/doc/NonCompart.pdf ;\
+	R CMD Rd2pdf NonCompart ;\
+	cp NonCompart.pdf NonCompart/inst/doc/NonCompart.pdf
 
 pkgdown: 
 	rm -rf docs ;\
