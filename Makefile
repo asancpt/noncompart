@@ -24,6 +24,9 @@ pkgdown:
 	rm -rf docs ;\
 	Rscript -e "Sys.setlocale('LC_ALL', 'C'); pkgdown::build_site()" 
 
+rdmd:
+	Rscript -e "Rd2md::Rd2markdown(rdfile = 'man/NonCompart-package.Rd', outfile = 'README.md')"
+
 readme: 
 	Rscript -e "rmarkdown::render('README.Rmd', output_format = 'github_document')"
 
