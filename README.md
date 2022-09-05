@@ -10,8 +10,10 @@ It conducts a noncompartmental analysis(NCA) with industrial strength.
 
 ## Details
 
-The main functions are
- list("\n", "tblNCA   to perform NCA for many subjects.\n", "\n", "sNCA     to perform NCA for one subject.\n")
+The main functions are 
+
+- `tblNCA` to perform NCA for many subjects. 
+- `sNCA` to perform NCA for one subject.
 
 
 ## Author
