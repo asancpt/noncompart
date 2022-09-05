@@ -8,7 +8,7 @@
   \item{y}{vector values of dependent variable, usually concentration}
   \item{t1}{start time for AUC}
   \item{t2}{end time for AUC}
-  \item{Res}{result from \code{IndiNCA} function}
+  \item{Res}{result from \code{sNCA} function}
   \item{down}{either of \code{"Linear"} or \code{"Log"} to indicate the way to calculate AUC}
 }
 \details{

@@ -1,5 +1,5 @@
 # interactive selcting points for terminal slope
-DetSlope = function(x, y, sel.1=0, sel.2=0)
+DetSlope = function(x, y, SubTitle="", sel.1=0, sel.2=0)
 {
 # Check input
   x = x[y != 0]
@@ -14,12 +14,13 @@ DetSlope = function(x, y, sel.1=0, sel.2=0)
   a = 0                # intercept of regression line
   b = 0                # slope of regression line
   OldOpt = options("locatorBell")
+  on.exit(options(OldOpt))
   options(locatorBell = FALSE) # locator bell is annoying
   
   SavedDev = dev.cur()
   dev.new()            # not to overwrite previous plot
   DefPar = par(bg="white")
-  plot(x, y, xlab="Time", ylab="log(Concentration)", main="Choose points for terminal slope") # for time-concentration only
+  plot(x, y, xlab="Time", ylab="log(Concentration)", main="Choose points for terminal slope", sub=SubTitle) # for time-concentration only
 
   sel = rep(FALSE, n1) # selection indictator
   while (TRUE) {
@@ -64,7 +65,8 @@ DetSlope = function(x, y, sel.1=0, sel.2=0)
   par(DefPar)
   options(locatorBell = OldOpt)
   Res = Slope(x[sel], y[sel])
+  Res["CLSTP"] = exp(Res["b0"] - Res["LAMZ"]*max(x[is.finite(y)]))
   attr(Res, "UsedPoints") = which(sel)
-  dev.set(SavedDev)
+  if (attr(SavedDev, "names") != "null device") dev.set(SavedDev)
   return(Res)
 }

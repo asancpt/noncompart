@@ -3,7 +3,6 @@ Interpol = function(x, y, xnew, Slope=0, b0=0, down="Linear")
 # Author: Kyun-Seop Bae k@acr.kr
 # Last modification: 2017.7.24
 # Called by: IntAUC
-# Calls: UT
 # INPUT
 #   x: time or similar vector
 #   y: concentration or similear vector
@@ -42,7 +41,7 @@ Interpol = function(x, y, xnew, Slope=0, b0=0, down="Linear")
   } else RIGHT = FALSE
 
   if (LEFT==TRUE & RIGHT==TRUE) {
-    if (UT(down)=="LOG" & y2 < y1 & y2 > 0) {
+    if (toupper(trimws(down)) == "LOG" & y2 < y1 & y2 > 0) {
       ynew = exp(log(y1) + (log(y2) - log(y1))/(x2 - x1)*(xnew - x1))
     } else {
       ynew = y1 + (y2 - y1)/(x2 - x1)*(xnew - x1)

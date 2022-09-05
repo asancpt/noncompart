@@ -5,7 +5,8 @@
 \usage{
 tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0, 
        adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit = "h", 
-       concUnit = "ug/L", down = "Linear", R2ADJ = 0.9, MW = 0, iAUC="")
+       concUnit = "ug/L", down = "Linear", R2ADJ = 0, MW = 0, iAUC="", 
+       excludeDelta = 1)
 }
 \arguments{
   \item{concData}{concentration data table}
@@ -22,6 +23,10 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
   \item{R2ADJ}{Lowest threshold of adjusted R-square value to do manual slope determination}
   \item{MW}{molecular weight of drug}
   \item{iAUC}{data.frame for interval AUC}
+  \item{excludeDelta}{Improvement of R2ADJ larger than this value could exclude the last point. Default value 1 is for the compatibility with other software.}
+}
+\details{
+  Tabular output of NCA with many subjects. Author recommends to use \code{excludeDelta} option with about 0.3.
 }
 \value{Basically same with \code{\link{sNCA}}}
 \author{Kyun-Seop Bae <k@acr.kr>}

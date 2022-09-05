@@ -22,7 +22,6 @@ This function is usually called by \code{BestSlope} function, and you seldom nee
   \item{CORRXY}{correlation of log(y) and x}
   \item{LAMZLL}{earliest x for lambda_z}
   \item{LAMZUL}{last x for lambda_z}
-  \item{CLSTP}{predicted y value at the last point, predicted concentration for the last time point}
 }
 \author{Kyun-Seop Bae <k@acr.kr>}
 \seealso{\code{\link{BestSlope}}}

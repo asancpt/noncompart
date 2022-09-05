@@ -1,5 +1,28 @@
 \name{NEWS}
 \title{News for Package \pkg{NonCompart}}
+\section{Changes in version 0.5.1 (2022-06-15)}{
+  \itemize{
+    \item{Rare cases raising NaN in \code{BestSlope} are handled.}
+  }
+}
+\section{Changes in version 0.5.0 (2022-01-20)}{
+  \itemize{
+    \item{\code{DetSlope} no longer opens a new device when closed.}
+    \item{Data type error with tibble data is fixed.}
+  }
+}
+\section{Changes in version 0.4.9 (2021-07-10)}{
+  \itemize{
+    \item{Bug when a slope is determined by manual selection is fixed.}
+    \item{\code{excludeDelta} option added to tblNCA, sNCA, and BestSlope functions.}
+  }
+}
+\section{Changes in version 0.4.8 (2021-06-10)}{
+  \itemize{
+    \item{UT function removed}
+    \item{returnNA option in sNCA function is removed.}
+  }
+}
 \section{Changes in version 0.4.7 (2020-01-02)}{
   \itemize{
     \item{When impossible to determining slope, it skipe.}

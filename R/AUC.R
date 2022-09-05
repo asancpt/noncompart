@@ -22,10 +22,10 @@ AUC = function(x, y, down="Linear")
     if (y[i] >= y[i - 1]) { # if upward
       Res[i,1] = (x[i] - x[i-1])*(y[i] + y[i-1])/2 
       Res[i,2] = (x[i] - x[i-1])*(x[i]*y[i] + x[i-1]*y[i-1])/2
-    } else if (UT(down) == "LINEAR") { # downward & linear
+    } else if (toupper(trimws(down)) == "LINEAR") { # downward & linear
       Res[i,1] = (x[i] - x[i-1])*(y[i] + y[i-1])/2 
       Res[i,2] = (x[i] - x[i-1])*(x[i]*y[i] + x[i-1]*y[i-1])/2
-    } else if (UT(down) == "LOG") { # downward & log
+    } else if (toupper(trimws(down)) == "LOG") { # downward & log
       k = (log(y[i - 1]) - log(y[i]))/(x[i] - x[i-1]) # -k slope in y-log scale
       Res[i,1] = (y[i-1] - y[i])/k
       Res[i,2] = (x[i-1]*y[i-1] - x[i]*y[i])/k + (y[i-1] - y[i])/k/k

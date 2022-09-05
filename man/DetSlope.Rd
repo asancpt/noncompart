@@ -4,10 +4,11 @@
 \description{
 You choose a slope for terminal half-life.
 }
-\usage{DetSlope(x, y, sel.1=0, sel.2=0)}
+\usage{DetSlope(x, y, SubTitle="", sel.1=0, sel.2=0)}
 \arguments{
   \item{x}{vector values of x-axis, usually time}
   \item{y}{vector values of y-axis, usually concentration}
+  \item{SubTitle}{subtitle to be shown on the plot}
   \item{sel.1}{default index of the first element to use}
   \item{sel.2}{default index of the last element to use}
 }

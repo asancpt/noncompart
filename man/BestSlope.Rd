@@ -6,17 +6,20 @@ It sequentially fits (log(y) ~ x) from the last point of x to the previous point
 It chooses a slope the highest adjusted R-square.
 If the difference is less then 1e-4, it pickes longer slope.
 }
-\usage{BestSlope(x, y, adm = "Extravascular", TOL=1e-4)}
+\usage{
+  BestSlope(x, y, adm = "Extravascular", TOL=1e-4, excludeDelta = 1)
+}
 \arguments{
   \item{x}{vector values of x-axis, usually time}
   \item{y}{vector values of y-axis, usually concentration}
   \item{adm}{one of \code{"Bolus"} or \code{"Infusion"} or \code{"Extravascular"} to indicate drug administration mode}
   \item{TOL}{tolerance. See Phoneix WinNonlin 6.4 User's Guide p33 for the detail.}
+  \item{excludeDelta}{Improvement of R2ADJ larger than this value could exclude the last point. Default value 1 is for the compatibility with other software.}
 }
 \details{
 Choosing the best terminal slope (y in log scale) in pharmacokinetic analysis is somewhat challenging, and it could vary by analysis performer.
 Pheonix WinNonlin chooses a slope with highest adjusted R-squared and the longest one. The difference of adjusted R-Squared less than TOL considered to be 0.  
-This function uses ordinary least square method (OLS).
+This function uses ordinary least square method (OLS). Author recommends to use \code{excludeDelta} option with about 0.3.
 }
 \value{
   \item{R2}{R-squared}

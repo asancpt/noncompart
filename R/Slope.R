@@ -15,9 +15,10 @@ Slope = function(x, y)
              b0 = NA_real_,     # intercept from OLS, i.e. simple linear regression
              CORRXY = NA_real_, # Correlation of x, y
              LAMZLL = NA_real_, # Lower time for lambda z
-             LAMZUL = NA_real_, # Upper time for lambda z
-             CLSTP = NA_real_)  # Concentration last predicted in original scale
+             LAMZUL = NA_real_) # Upper time for lambda z
 # Input Check
+  x = x[is.finite(x) & is.finite(y)]
+  y = y[is.finite(x) & is.finite(y)]
   n = length(x)
   if (n == 1 | n != length(y) | !is.numeric(x) | !is.numeric(y)) {
     return(Result)  # return default
@@ -43,6 +44,5 @@ Slope = function(x, y)
   Result["CORRXY"]  = sign(b1)*sqrt(Result["R2"])
   Result["LAMZLL"]  = x[1]
   Result["LAMZUL"]  = x[n]
-  Result["CLSTP"]   = exp(Result["b0"] + b1 * x[n])
   return(Result)
 }

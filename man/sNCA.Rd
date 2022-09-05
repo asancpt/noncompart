@@ -4,12 +4,13 @@
 \description{This is the work-horse function for NCA.}
 \usage{
 sNCA(x, y, dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit = "h", 
-     concUnit = "ug/L", iAUC = "", down = "Linear", R2ADJ = 0.9, MW = 0, returnNA = FALSE)
+     concUnit = "ug/L", iAUC = "", down = "Linear", R2ADJ = 0.7, MW = 0, Keystring="",
+     excludeDelta = 1)
 }
 \arguments{
   \item{x}{usually time}
   \item{y}{usually concentration}
-  \item{dose}{given amount}
+  \item{dose}{given amount, not amount per body weight}
   \item{adm}{one of \code{"Bolus"} or \code{"Infusion"} or \code{"Extravascular"} to indicate drug administration mode}
   \item{dur}{duration of infusion}
   \item{doseUnit}{unit of dose}
@@ -19,10 +20,11 @@ sNCA(x, y, dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit =
   \item{down}{either of \code{"Linear"} or \code{"Log"} to indicate the way to calculate AUC and AUMC}
   \item{R2ADJ}{Minimum adjusted R-square value to determine terminal slope automatically}
   \item{MW}{molecular weight of the drug}
-  \item{returnNA}{deprecated, just for backward compatibility}
+  \item{Keystring}{a text string to be shown at the plot in case of manual selection of terminal slope}
+  \item{excludeDelta}{Improvement of R2ADJ larger than this value could exclude the last point. Default value 1 is for the compatibility with other software.}
 }
 \details{
-  This will replace \code{IndiNCA}.
+  This replaced previous \code{IndiNCA}. Author recommends to use \code{excludeDelta} option with about 0.3.
 }
 \value{
   \item{CMAX}{maximum concentration, Cmax}
